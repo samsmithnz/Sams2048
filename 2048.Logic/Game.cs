@@ -61,7 +61,7 @@ namespace _2048.Logic
 
             //for (int x = 0; x < xLength; x++)
             //{
-            //    if (GameBoard[x, 0] == GameBoard[x, 1])
+            //    if (GameBoard[x, 0] > 0 && GameBoard[x, 0] == GameBoard[x, 1])
             //    {
             //        GameBoard[x, 0] = GameBoard[x, 0] * 2;
             //        GameBoard[x, 1] = GameBoard[x, 2];
@@ -69,20 +69,20 @@ namespace _2048.Logic
             //        GameBoard[x, 3] = GameBoard[x, 4];
             //        GameBoard[x, 4] = 0;
             //    }
-            //    if (GameBoard[x, 1] == GameBoard[x, 2])
+            //    if (GameBoard[x, 1] > 0 && GameBoard[x, 1] == GameBoard[x, 2])
             //    {
             //        GameBoard[x, 1] = GameBoard[x, 1] * 2;
             //        GameBoard[x, 2] = GameBoard[x, 3];
             //        GameBoard[x, 3] = GameBoard[x, 4];
             //        GameBoard[x, 4] = 0;
             //    }
-            //    if (GameBoard[x, 2] == GameBoard[x, 3])
+            //    if (GameBoard[x, 2] > 0 && GameBoard[x, 2] == GameBoard[x, 3])
             //    {
             //        GameBoard[x, 2] = GameBoard[x, 2] * 2;
             //        GameBoard[x, 3] = GameBoard[x, 4];
             //        GameBoard[x, 4] = 0;
             //    }
-            //    if (GameBoard[x, 3] == GameBoard[x, 4])
+            //    if (GameBoard[x, 3] > 0 && GameBoard[x, 3] == GameBoard[x, 4])
             //    {
             //        GameBoard[x, 3] = GameBoard[x, 3] * 2;
             //        GameBoard[x, 4] = 0;
@@ -90,7 +90,7 @@ namespace _2048.Logic
             //}
             for (int y = 0; y < yLength; y++)
             {
-                if (GameBoard[0, y] == GameBoard[1, y])
+                if (GameBoard[0, y] > 0 && GameBoard[0, y] == GameBoard[1, y])
                 {
                     GameBoard[0, y] = GameBoard[0, y] * 2;
                     GameBoard[1, y] = GameBoard[2, y];
@@ -98,20 +98,20 @@ namespace _2048.Logic
                     GameBoard[3, y] = GameBoard[4, y];
                     GameBoard[4, y] = 0;
                 }
-                if (GameBoard[1, y] == GameBoard[2, y])
+                if (GameBoard[1, y] > 0 && GameBoard[1, y] == GameBoard[2, y])
                 {
                     GameBoard[1, y] = GameBoard[1, y] * 2;
                     GameBoard[2, y] = GameBoard[3, y];
                     GameBoard[3, y] = GameBoard[4, y];
                     GameBoard[4, y] = 0;
                 }
-                if (GameBoard[2, y] == GameBoard[3, y])
+                if (GameBoard[2, y] > 0 && GameBoard[2, y] == GameBoard[3, y])
                 {
                     GameBoard[2, y] = GameBoard[2, y] * 2;
                     GameBoard[3, y] = GameBoard[4, y];
                     GameBoard[4, y] = 0;
                 }
-                if (GameBoard[3, y] == GameBoard[4, y])
+                if (GameBoard[3, y] > 0 && GameBoard[3, y] == GameBoard[4, y])
                 {
                     GameBoard[3, y] = GameBoard[3, y] * 2;
                     GameBoard[4, y] = 0;
