@@ -29,30 +29,30 @@ namespace _2048.Logic
             return false;
         }
 
-        public void MovePiecesUp()
-        {
+        //public void MovePiecesUp()
+        //{
 
-        }
+        //}
 
-        public void MovePiecesDown()
-        {
+        //public void MovePiecesDown()
+        //{
 
-        }
+        //}
 
-        public void MovePiecesLeft()
-        {
+        //public void MovePiecesLeft()
+        //{
 
-        }
+        //}
 
-        public void MovePiecesRight()
-        {
+        //public void MovePiecesRight()
+        //{
 
-        }
+        //}
 
-        public void AddNewPiece()
-        {
+        //public void AddNewPiece()
+        //{
 
-        }
+        //}
 
         public override string ToString()
         {
