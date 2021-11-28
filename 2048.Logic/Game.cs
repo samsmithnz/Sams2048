@@ -60,12 +60,7 @@ namespace _2048.Logic
             int xLength = GameBoard.GetLength(0);
             int yLength = GameBoard.GetLength(1);
             sb.Append(Environment.NewLine);
-            for (int y = 0; y < yLength; y++)
-            {
-                sb.Append("--");
-            }
-            sb.Append('-');
-            sb.Append(Environment.NewLine);
+            sb.Append(AddDividingLine(yLength));
             for (int x = 0; x < xLength; x++)
             {
                 sb.Append('|');
@@ -75,13 +70,20 @@ namespace _2048.Logic
                     sb.Append('|');
                 }
                 sb.Append(Environment.NewLine);
-                for (int y = 0; y < yLength; y++)
-                {
-                    sb.Append("--");
-                }
-                sb.Append('-');
-                sb.Append(Environment.NewLine);
+                sb.Append(AddDividingLine(yLength));
             }
+            return sb.ToString();
+        }
+
+        private string AddDividingLine(int length)
+        {
+            StringBuilder sb = new StringBuilder();
+            for (int y = 0; y < length; y++)
+            {
+                sb.Append("--");
+            }
+            sb.Append('-');
+            sb.Append(Environment.NewLine);
             return sb.ToString();
         }
     }
