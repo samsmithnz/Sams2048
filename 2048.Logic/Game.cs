@@ -1,4 +1,6 @@
-﻿namespace _2048.Logic
+﻿using System.Text;
+
+namespace _2048.Logic
 {
     public class Game
     {
@@ -25,6 +27,62 @@
                 }
             }
             return false;
+        }
+
+        public void MovePiecesUp()
+        {
+
+        }
+
+        public void MovePiecesDown()
+        {
+
+        }
+
+        public void MovePiecesLeft()
+        {
+
+        }
+
+        public void MovePiecesRight()
+        {
+
+        }
+
+        public void AddNewPiece()
+        {
+
+        }
+
+        public override string ToString()
+        {
+            StringBuilder sb = new();
+            int xLength = GameBoard.GetLength(0);
+            int yLength = GameBoard.GetLength(1);
+            sb.Append(Environment.NewLine);
+            for (int y = 0; y < yLength; y++)
+            {
+                sb.Append("--");
+            }
+            sb.Append('-');
+            sb.Append(Environment.NewLine);
+            for (int x = 0; x < xLength; x++)
+            {
+                sb.Append('|');
+                for (int y = 0; y < yLength; y++)
+                {
+                    sb.Append(GameBoard[x, y]);
+                    sb.Append('|');
+                }
+                sb.Append(Environment.NewLine);
+                for (int y = 0; y < yLength; y++)
+                {
+                    sb.Append("--");
+                }
+                sb.Append('-');
+                sb.Append(Environment.NewLine);
+            }
+            return sb.ToString();
         }
     }
 }
