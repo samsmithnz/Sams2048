@@ -4,11 +4,11 @@ namespace _2048.Logic
 {
     public class Game
     {
-        public Game(int x = 5, int y = 5)
+        public Game(int x = 4, int y = 4)
         {
             GameBoard = new int[x, y];
         }
-        public Game(string board, int x = 5, int y = 5)
+        public Game(string board, int x = 4, int y = 4)
         {
             GameBoard = new int[x, y];
 
@@ -93,36 +93,34 @@ namespace _2048.Logic
                 if (GameBoard[0, y] > 0 && GameBoard[0, y] == GameBoard[1, y])
                 {
                     GameBoard[0, y] = GameBoard[0, y] * 2;
-                    GameBoard[1, y] = GameBoard[2, y];
-                    GameBoard[2, y] = GameBoard[3, y];
-                    GameBoard[3, y] = GameBoard[4, y];
-                    GameBoard[4, y] = 0;
+                    MoveRowUpFromPosition(1, y);
                 }
                 if (GameBoard[1, y] > 0 && GameBoard[1, y] == GameBoard[2, y])
                 {
                     GameBoard[1, y] = GameBoard[1, y] * 2;
-                    GameBoard[2, y] = GameBoard[3, y];
-                    GameBoard[3, y] = GameBoard[4, y];
-                    GameBoard[4, y] = 0;
+                    MoveRowUpFromPosition(2, y);
                 }
                 if (GameBoard[2, y] > 0 && GameBoard[2, y] == GameBoard[3, y])
                 {
                     GameBoard[2, y] = GameBoard[2, y] * 2;
-                    GameBoard[3, y] = GameBoard[4, y];
-                    GameBoard[4, y] = 0;
+                    MoveRowUpFromPosition(3, y);
                 }
                 if (GameBoard[3, y] > 0 && GameBoard[3, y] == GameBoard[4, y])
                 {
                     GameBoard[3, y] = GameBoard[3, y] * 2;
-                    GameBoard[4, y] = 0;
+                    MoveRowUpFromPosition(4, y);
                 }
             }
         }
 
-        //private void MoveRowUpFromPosition(int x, int y)
-        //{
-
-        //}
+        private void MoveRowUpFromPosition(int xStart, int yStart)
+        {
+            for (int x = xStart; x < 4; x++)
+            {
+                GameBoard[x, yStart] = GameBoard[x + 1, yStart];
+            }
+            GameBoard[4, yStart] = 0;
+        }
 
         //public void MovePiecesDown()
         //{
