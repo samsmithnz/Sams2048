@@ -54,7 +54,72 @@ namespace _2048.Logic
             return false;
         }
 
-        //public void MovePiecesUp()
+        public void MovePiecesUp()
+        {
+            int xLength = GameBoard.GetLength(0);
+            int yLength = GameBoard.GetLength(1);
+
+            //for (int x = 0; x < xLength; x++)
+            //{
+            //    if (GameBoard[x, 0] == GameBoard[x, 1])
+            //    {
+            //        GameBoard[x, 0] = GameBoard[x, 0] * 2;
+            //        GameBoard[x, 1] = GameBoard[x, 2];
+            //        GameBoard[x, 2] = GameBoard[x, 3];
+            //        GameBoard[x, 3] = GameBoard[x, 4];
+            //        GameBoard[x, 4] = 0;
+            //    }
+            //    if (GameBoard[x, 1] == GameBoard[x, 2])
+            //    {
+            //        GameBoard[x, 1] = GameBoard[x, 1] * 2;
+            //        GameBoard[x, 2] = GameBoard[x, 3];
+            //        GameBoard[x, 3] = GameBoard[x, 4];
+            //        GameBoard[x, 4] = 0;
+            //    }
+            //    if (GameBoard[x, 2] == GameBoard[x, 3])
+            //    {
+            //        GameBoard[x, 2] = GameBoard[x, 2] * 2;
+            //        GameBoard[x, 3] = GameBoard[x, 4];
+            //        GameBoard[x, 4] = 0;
+            //    }
+            //    if (GameBoard[x, 3] == GameBoard[x, 4])
+            //    {
+            //        GameBoard[x, 3] = GameBoard[x, 3] * 2;
+            //        GameBoard[x, 4] = 0;
+            //    }
+            //}
+            for (int y = 0; y < yLength; y++)
+            {
+                if (GameBoard[0, y] == GameBoard[1, y])
+                {
+                    GameBoard[0, y] = GameBoard[0, y] * 2;
+                    GameBoard[1, y] = GameBoard[2, y];
+                    GameBoard[2, y] = GameBoard[3, y];
+                    GameBoard[3, y] = GameBoard[4, y];
+                    GameBoard[4, y] = 0;
+                }
+                if (GameBoard[1, y] == GameBoard[2, y])
+                {
+                    GameBoard[1, y] = GameBoard[1, y] * 2;
+                    GameBoard[2, y] = GameBoard[3, y];
+                    GameBoard[3, y] = GameBoard[4, y];
+                    GameBoard[4, y] = 0;
+                }
+                if (GameBoard[2, y] == GameBoard[3, y])
+                {
+                    GameBoard[2, y] = GameBoard[2, y] * 2;
+                    GameBoard[3, y] = GameBoard[4, y];
+                    GameBoard[4, y] = 0;
+                }
+                if (GameBoard[3, y] == GameBoard[4, y])
+                {
+                    GameBoard[3, y] = GameBoard[3, y] * 2;
+                    GameBoard[4, y] = 0;
+                }
+            }
+        }
+
+        //private void MoveRowUpFromPosition(int x, int y)
         //{
 
         //}
