@@ -8,6 +8,31 @@ namespace _2048.Logic
         {
             GameBoard = new int[x, y];
         }
+        public Game(string board, int x = 5, int y = 5)
+        {
+            GameBoard = new int[x, y];
+
+            string[] lines = board.Split(Environment.NewLine);
+            int currentX = 0;
+            int currentY;
+            for (int i = 0; i < lines.Length; i++)
+            {
+                currentY = 0;
+                if (string.IsNullOrEmpty(lines[i]) == false && lines[i].StartsWith('-') != true)
+                {
+                    string[] cols = lines[i].Split('|');
+                    for (int j = 0; j < cols.Length; j++)
+                    {
+                        if (int.TryParse((cols[j].ToString()), out int result) == true)
+                        {
+                            GameBoard[currentX, currentY] = result;
+                            currentY++;
+                        }
+                    }
+                    currentX++;
+                }
+            }
+        }
 
         public int[,] GameBoard { get; set; }
 
