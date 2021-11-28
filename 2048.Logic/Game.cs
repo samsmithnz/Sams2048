@@ -105,21 +105,16 @@ namespace _2048.Logic
                     GameBoard[2, y] = GameBoard[2, y] * 2;
                     MoveRowUpFromPosition(3, y);
                 }
-                if (GameBoard[3, y] > 0 && GameBoard[3, y] == GameBoard[4, y])
-                {
-                    GameBoard[3, y] = GameBoard[3, y] * 2;
-                    MoveRowUpFromPosition(4, y);
-                }
             }
         }
 
         private void MoveRowUpFromPosition(int xStart, int yStart)
         {
-            for (int x = xStart; x < 4; x++)
+            for (int x = xStart; x < 3; x++)
             {
                 GameBoard[x, yStart] = GameBoard[x + 1, yStart];
             }
-            GameBoard[4, yStart] = 0;
+            GameBoard[3, yStart] = 0;
         }
 
         //public void MovePiecesDown()
