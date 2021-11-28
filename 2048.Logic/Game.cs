@@ -23,7 +23,7 @@ namespace _2048.Logic
                     string[] cols = lines[i].Split('|');
                     for (int j = 0; j < cols.Length; j++)
                     {
-                        if (int.TryParse((cols[j].ToString()), out int result) == true)
+                        if (int.TryParse(cols[j].ToString(), out int result) == true)
                         {
                             GameBoard[currentX, currentY] = result;
                             currentY++;
