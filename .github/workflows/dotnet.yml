@@ -40,6 +40,7 @@ jobs:
       run: dotnet test 2048.Tests/2048.Tests.csproj -p:CollectCoverage=true -p:CoverletOutput=TestResults/ -p:CoverletOutputFormat=lcov
     - name: Publish coverage report to coveralls.io
       uses: coverallsapp/github-action@master
+      if: 0 == 1 # commented out for now
       with:
         github-token: ${{ secrets.GITHUB_TOKEN }}
         path-to-lcov: 2048.Tests/TestResults/coverage.info
