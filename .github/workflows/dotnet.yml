@@ -35,6 +35,6 @@ jobs:
       with:
         dotnet-version: 6.0.x
     - name: Build
-      run: dotnet build 2048.Logic/2048.Logic.csproj -c Release --nologo --include-symbols -p:Version='${{ steps.gitversion.outputs.SemVer }}'
+      run: dotnet build 2048.Logic/2048.Logic.csproj -c Release --nologo -p:Version='${{ steps.gitversion.outputs.SemVer }}'
     #- name: Test
     #  run: dotnet test --no-build --verbosity normal
