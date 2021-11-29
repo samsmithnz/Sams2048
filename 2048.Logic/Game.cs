@@ -58,6 +58,24 @@ namespace _2048.Logic
         {
             int yLength = GameBoard.GetLength(1);
 
+            //Slide up the pieces first
+            for (int y = 0; y < yLength; y++)
+            {
+                if (GameBoard[0, y] == 0)
+                {
+                    MoveRowUpFromPosition(1, y);
+                }
+                if (GameBoard[1, y] == 0)
+                {
+                    MoveRowUpFromPosition(2, y);
+                }
+                if (GameBoard[2, y] == 0)
+                {
+                    MoveRowUpFromPosition(3, y);
+                }
+            }
+
+            //Then merge the pieces
             for (int y = 0; y < yLength; y++)
             {
                 if (GameBoard[0, y] > 0 && GameBoard[0, y] == GameBoard[1, y])
