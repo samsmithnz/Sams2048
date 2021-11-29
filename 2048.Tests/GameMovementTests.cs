@@ -7,7 +7,7 @@ namespace _2048.Tests
     public class GameMovementTests
     {
         [TestMethod]
-        public void MoveUpToMerge1To2Test()
+        public void MoveUpToMergeTest()
         {
             //Arrange
             string initialBoard = @"
@@ -44,7 +44,7 @@ namespace _2048.Tests
 
 
         [TestMethod]
-        public void MoveUpToMergeNoneTest()
+        public void MoveUpToNotMergeTest()
         {
             //Arrange
             string initialBoard = @"
@@ -78,8 +78,46 @@ namespace _2048.Tests
 ";
             Assert.AreEqual(gameBoardExpected, gameBoardCurrent);
         }
+
         [TestMethod]
-        public void MoveDownToMerge1To2Test()
+        public void SlideUpToMergeTest()
+        {
+            //Arrange
+            string initialBoard = @"
+---------
+|1|2|4|8|
+---------
+|1|4|8|16|
+---------
+|4|4|16|32|
+---------
+|8|8|16|32|
+---------
+";
+            Game game = new(initialBoard);
+
+            //Act
+            game.MovePiecesUp();
+            string gameBoardCurrent = game.ToString();
+
+            //Assert
+            string gameBoardExpected = @"
+---------
+|2|2|4|8|
+---------
+|4|8|8|16|
+---------
+|8|8|32|64|
+---------
+|0|0|0|0|
+---------
+";
+            Assert.AreEqual(gameBoardExpected, gameBoardCurrent);
+        }
+
+
+        [TestMethod]
+        public void MoveDownToMergeTest()
         {
             //Arrange
             string initialBoard = @"
@@ -116,7 +154,7 @@ namespace _2048.Tests
 
 
         [TestMethod]
-        public void MoveDownToMergeNoneTest()
+        public void MoveDownToNotMergeTest()
         {
             //Arrange
             string initialBoard = @"
@@ -152,7 +190,7 @@ namespace _2048.Tests
         }
 
         [TestMethod]
-        public void MoveRightToMerge1To2Test()
+        public void MoveRightToMergeTest()
         {
             //Arrange
             string initialBoard = @"
@@ -189,7 +227,7 @@ namespace _2048.Tests
 
 
         [TestMethod]
-        public void MoveRightToMergeNoneTest()
+        public void MoveRightToNotMergeTest()
         {
             //Arrange
             string initialBoard = @"
@@ -225,7 +263,7 @@ namespace _2048.Tests
         }
 
         [TestMethod]
-        public void MoveLeftToMerge1To2Test()
+        public void MoveLeftToMergeTest()
         {
             //Arrange
             string initialBoard = @"
@@ -262,7 +300,7 @@ namespace _2048.Tests
 
 
         [TestMethod]
-        public void MoveLeftToMergeNoneTest()
+        public void MoveLeftToNotMergeTest()
         {
             //Arrange
             string initialBoard = @"
