@@ -116,12 +116,12 @@ namespace _2048.Logic
                 if (GameBoard[x, 1] > 0 && GameBoard[x, 1] == GameBoard[x, 2])
                 {
                     GameBoard[x, 1] = GameBoard[x, 1] * 2;
-                    MoveColumnLeftFromPosition(x, 1);
+                    MoveColumnLeftFromPosition(x, 2);
                 }
                 if (GameBoard[x, 2] > 0 && GameBoard[x, 2] == GameBoard[x, 3])
                 {
                     GameBoard[x, 2] = GameBoard[x, 2] * 2;
-                    MoveColumnLeftFromPosition(x, 2);
+                    MoveColumnLeftFromPosition(x, 3);
                 }
             }
         }
@@ -170,20 +170,20 @@ namespace _2048.Logic
 
         private void MoveColumnLeftFromPosition(int xStart, int yStart)
         {
-            for (int x = xStart; x < 3; x++)
+            for (int y = yStart; y < 3; y++)
             {
-                GameBoard[x, yStart] = GameBoard[x + 1, yStart];
+                GameBoard[xStart, y] = GameBoard[xStart, y + 1];
             }
-            GameBoard[3, yStart] = 0;
+            GameBoard[xStart, 3] = 0;
         }
 
         private void MoveColumnRightFromPosition(int xStart, int yStart)
         {
-            for (int x = xStart; x > 0; x--)
+            for (int y = yStart; y > 0; y--)
             {
-                GameBoard[x, yStart] = GameBoard[x - 1, yStart];
+                GameBoard[xStart, y] = GameBoard[xStart, y - 1];
             }
-            GameBoard[0, yStart] = 0;
+            GameBoard[xStart, 0] = 0;
         }
 
         //public void AddNewPiece()
