@@ -175,13 +175,13 @@ namespace _2048.Tests
             //Assert
             string gameBoardExpected = @"
 ---------
-|2|2|4|8|
+|1|2|4|8|
 ---------
-|4|8|8|16|
+|1|4|8|16|
 ---------
-|8|8|32|64|
+|0|8|16|32|
 ---------
-|0|0|0|0|
+|0|16|16|32|
 ---------
 ";
             Assert.AreEqual(gameBoardExpected, gameBoardCurrent);
@@ -200,7 +200,7 @@ namespace _2048.Tests
 ---------
 |4|8|4|32|
 ---------
-|8|16|16|128|
+|8|16|32|128|
 ---------
 ";
             Game game = new(initialBoard);
@@ -218,11 +218,12 @@ namespace _2048.Tests
 ---------
 |4|8|4|32|
 ---------
-|8|16|16|128|
+|8|16|32|128|
 ---------
 ";
             Assert.AreEqual(gameBoardExpected, gameBoardCurrent);
         }
+
         [TestMethod]
         public void MoveLeftToMerge1To2Test()
         {
@@ -231,11 +232,11 @@ namespace _2048.Tests
 ---------
 |1|2|4|8|
 ---------
-|1|4|8|16|
+|2|2|4|8|
 ---------
-|4|4|16|32|
+|4|8|8|16|
 ---------
-|8|8|16|32|
+|8|8|32|64|
 ---------
 ";
             Game game = new(initialBoard);
@@ -247,13 +248,13 @@ namespace _2048.Tests
             //Assert
             string gameBoardExpected = @"
 ---------
-|0|0|0|0|
+|1|2|4|8|
 ---------
-|2|2|4|8|
+|4|4|8|0|
 ---------
-|4|8|8|16|
+|8|16|32|0|
 ---------
-|8|8|32|64|
+|16|32|64|0|
 ---------
 ";
             Assert.AreEqual(gameBoardExpected, gameBoardCurrent);
@@ -272,7 +273,7 @@ namespace _2048.Tests
 ---------
 |4|8|4|32|
 ---------
-|8|16|16|128|
+|8|16|32|128|
 ---------
 ";
             Game game = new(initialBoard);
@@ -290,7 +291,7 @@ namespace _2048.Tests
 ---------
 |4|8|4|32|
 ---------
-|8|16|16|128|
+|8|16|32|128|
 ---------
 ";
             Assert.AreEqual(gameBoardExpected, gameBoardCurrent);
