@@ -57,31 +57,34 @@ namespace _2048.Logic
 
         public void MovePiecesUp()
         {
+            int xLength = GameBoard.GetLength(0);
             int yLength = GameBoard.GetLength(1);
 
-            //Slide up the pieces first
-
-            //Look at the column. Find each non-zero number, and move it to the top
-            //Look at each row. Track the current zero row, and the current non-zero row. If non zero row is > zero row, move to zero row
-
-            for (int y = 0; y < yLength; y++)
+            //Slide up the pieces into empty spots first
+            for (int x = 0; x < xLength; x++)
             {
+                int currentColumn = 0;
+                int moveCounter = 0;
                 Debug.WriteLine(this.ToString());
-                if (GameBoard[0, y] == 0)
+                do
                 {
-                    MoveRowUpFromPosition(1, y);
-                }
-                Debug.WriteLine(this.ToString());
-                if (GameBoard[1, y] == 0)
-                {
-                    MoveRowUpFromPosition(2, y);
-                }
-                Debug.WriteLine(this.ToString());
-                if (GameBoard[2, y] == 0)
-                {
-                    MoveRowUpFromPosition(3, y);
-                }
-                Debug.WriteLine(this.ToString());
+                    if (GameBoard[x, currentColumn] == 0 && x < 3 && moveCounter < 4)
+                    {
+                        MoveRowUpFromPosition(x, currentColumn);
+                        moveCounter++;
+                    }
+                    else
+                    {
+                        moveCounter = 0;
+                        if (currentColumn == 4)
+                        {
+                            int i = 4;
+                        }
+                        currentColumn++;
+                    }
+                    Debug.WriteLine(this.ToString());
+
+                } while (currentColumn < yLength);
             }
 
             //Then merge the pieces
