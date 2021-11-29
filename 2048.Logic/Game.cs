@@ -110,7 +110,7 @@ namespace _2048.Logic
             int yLength = GameBoard.GetLength(1);
 
             //Slide up the pieces into empty spots first
-            for (int x = xLength-1; x > 0; x--)
+            for (int x = xLength - 1; x > 0; x--)
             {
                 int currentColumn = 0;
                 int moveCounter = 0;
@@ -156,7 +156,32 @@ namespace _2048.Logic
         public void MovePiecesLeft()
         {
             int xLength = GameBoard.GetLength(0);
+            int yLength = GameBoard.GetLength(1);
 
+            //Slide up the pieces into empty spots first
+            for (int y = 0; y < yLength; y++)
+            {
+                int currentRow = 0;
+                int moveCounter = 0;
+                Debug.WriteLine(this.ToString());
+                do
+                {
+                    if (GameBoard[currentRow, y] == 0 && y < 3 && moveCounter < 4)
+                    {
+                        MoveColumnLeftFromPosition(currentRow, y);
+                        moveCounter++;
+                    }
+                    else
+                    {
+                        moveCounter = 0;
+                        currentRow++;
+                    }
+                    Debug.WriteLine(this.ToString());
+
+                } while (currentRow < xLength);
+            }
+
+            //Then merge the pieces
             for (int x = 0; x < xLength; x++)
             {
                 if (GameBoard[x, 0] > 0 && GameBoard[x, 0] == GameBoard[x, 1])
@@ -180,7 +205,32 @@ namespace _2048.Logic
         public void MovePiecesRight()
         {
             int xLength = GameBoard.GetLength(0);
+            int yLength = GameBoard.GetLength(1);
 
+            //Slide up the pieces into empty spots first
+            for (int y = yLength - 1; y > 0; y--)    
+            {
+                int currentRow = 0;
+                int moveCounter = 0;
+                //Debug.WriteLine(this.ToString());
+                do
+                {
+                    if (GameBoard[currentRow, y] == 0 && y > 0 && moveCounter < 4)
+                    {
+                        MoveColumnRightFromPosition(currentRow, y);
+                        moveCounter++;
+                    }
+                    else
+                    {
+                        moveCounter = 0;
+                        currentRow++;
+                    }
+                    //Debug.WriteLine(this.ToString());
+
+                } while (currentRow < xLength);
+            }
+
+            //Then merge the pieces
             for (int x = 0; x < xLength; x++)
             {
                 if (GameBoard[x, 2] > 0 && GameBoard[x, 3] == GameBoard[x, 2])
