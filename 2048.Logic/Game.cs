@@ -60,6 +60,10 @@ namespace _2048.Logic
             int yLength = GameBoard.GetLength(1);
 
             //Slide up the pieces first
+
+            //Look at the column. Find each non-zero number, and move it to the top
+            //Look at each row. Track the current zero row, and the current non-zero row. If non zero row is > zero row, move to zero row
+
             for (int y = 0; y < yLength; y++)
             {
                 Debug.WriteLine(this.ToString());
