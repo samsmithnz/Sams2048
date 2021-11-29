@@ -51,11 +51,11 @@ namespace _2048.Tests
 ---------
 |1|2|4|8|
 ---------
-|2|0|0|16|
+|2|4|8|16|
 ---------
-|4|0|0|32|
+|4|8|4|32|
 ---------
-|8|0|0|128|
+|8|16|16|128|
 ---------
 ";
             Game game = new(initialBoard);
@@ -69,29 +69,87 @@ namespace _2048.Tests
 ---------
 |1|2|4|8|
 ---------
-|2|0|0|16|
+|2|4|8|16|
 ---------
-|4|0|0|32|
+|4|8|4|32|
 ---------
-|8|0|0|128|
+|8|16|16|128|
+---------
+";
+            Assert.AreEqual(gameBoardExpected, gameBoardCurrent);
+        }
+        [TestMethod]
+        public void MoveDownToMerge1To2Test()
+        {
+            //Arrange
+            string initialBoard = @"
+---------
+|1|2|4|8|
+---------
+|1|4|8|16|
+---------
+|4|4|16|32|
+---------
+|8|8|16|32|
+---------
+";
+            Game game = new(initialBoard);
+
+            //Act
+            game.MovePiecesDown();
+            string gameBoardCurrent = game.ToString();
+
+            //Assert
+            string gameBoardExpected = @"
+---------
+|0|0|0|0|
+---------
+|2|2|4|8|
+---------
+|4|8|8|16|
+---------
+|8|8|32|64|
 ---------
 ";
             Assert.AreEqual(gameBoardExpected, gameBoardCurrent);
         }
 
-        //[TestMethod]
-        //public void GameIsNotWonYetTest()
-        //{
-        //    //Arrange
-        //    Game game = new();
-        //    game.GameBoard[0, 0] = 1;
 
-        //    //Act
-        //    bool gameIsComplete = game.CheckIfGameIsComplete();
+        [TestMethod]
+        public void MoveDownToMergeNoneTest()
+        {
+            //Arrange
+            string initialBoard = @"
+---------
+|1|2|4|8|
+---------
+|2|4|8|16|
+---------
+|4|8|4|32|
+---------
+|8|16|16|128|
+---------
+";
+            Game game = new(initialBoard);
 
-        //    //Assert
-        //    Assert.IsFalse(gameIsComplete);
-        //}
+            //Act
+            game.MovePiecesDown();
+            string gameBoardCurrent = game.ToString();
+
+            //Assert
+            string gameBoardExpected = @"
+---------
+|1|2|4|8|
+---------
+|2|4|8|16|
+---------
+|4|8|4|32|
+---------
+|8|16|16|128|
+---------
+";
+            Assert.AreEqual(gameBoardExpected, gameBoardCurrent);
+        }
 
     }
 }

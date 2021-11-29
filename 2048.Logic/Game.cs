@@ -117,10 +117,39 @@ namespace _2048.Logic
             GameBoard[3, yStart] = 0;
         }
 
-        //public void MovePiecesDown()
-        //{
+        public void MovePiecesDown()
+        {
+            int xLength = GameBoard.GetLength(0);
+            int yLength = GameBoard.GetLength(1);
+            
+            for (int y = 0; y < yLength; y++)
+            {
+                if (GameBoard[2, y] > 0 && GameBoard[3, y] == GameBoard[2, y])
+                {
+                    GameBoard[2, y] = GameBoard[2, y] * 2;
+                    MoveRowDownFromPosition(3, y);
+                }
+                if (GameBoard[1, y] > 0 && GameBoard[2, y] == GameBoard[1, y])
+                {
+                    GameBoard[1, y] = GameBoard[1, y] * 2;
+                    MoveRowDownFromPosition(2, y);
+                }
+                if (GameBoard[0, y] > 0 && GameBoard[1, y] == GameBoard[0, y])
+                {
+                    GameBoard[0, y] = GameBoard[0, y] * 2;
+                    MoveRowDownFromPosition(1, y);
+                }
+            }
+        }
 
-        //}
+        private void MoveRowDownFromPosition(int xStart, int yStart)
+        {
+            for (int x = xStart; x > 0; x--)
+            {
+                GameBoard[x, yStart] = GameBoard[x - 1, yStart];
+            }
+            GameBoard[0, yStart] = 0;
+        }
 
         //public void MovePiecesLeft()
         //{
