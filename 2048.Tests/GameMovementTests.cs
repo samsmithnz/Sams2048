@@ -304,13 +304,13 @@ namespace _2048.Tests
             //Arrange
             string initialBoard = @"
 ---------
-|1|2|4|8|
+|1|0|0|0|
 ---------
-|0|1|2|4|
+|2|1|0|0|
 ---------
-|0|0|1|0|
+|4|2|1|0|
 ---------
-|0|0|0|1|
+|8|4|0|1|
 ---------
 ";
             Game game = new(initialBoard);
@@ -322,13 +322,13 @@ namespace _2048.Tests
             //Assert
             string gameBoardExpected = @"
 ---------
-|0|0|0|0|
+|0|0|0|1|
 ---------
-|0|0|4|8|
+|0|0|2|1|
 ---------
-|0|2|2|4|
+|0|4|2|1|
 ---------
-|1|1|1|1|
+|0|8|4|1|
 ---------
 ";
             Assert.AreEqual(gameBoardExpected, gameBoardCurrent);
@@ -413,13 +413,13 @@ namespace _2048.Tests
             //Arrange
             string initialBoard = @"
 ---------
-|1|2|4|8|
+|0|0|0|1|
+---------
+|0|0|1|2|
 ---------
 |0|1|2|4|
 ---------
-|0|0|1|0|
----------
-|0|0|0|1|
+|1|0|4|8|
 ---------
 ";
             Game game = new(initialBoard);
@@ -431,13 +431,13 @@ namespace _2048.Tests
             //Assert
             string gameBoardExpected = @"
 ---------
-|0|0|0|0|
+|1|0|0|0|
 ---------
-|0|0|4|8|
+|1|2|0|0|
 ---------
-|0|2|2|4|
+|1|2|4|0|
 ---------
-|1|1|1|1|
+|1|4|8|0|
 ---------
 ";
             Assert.AreEqual(gameBoardExpected, gameBoardCurrent);
