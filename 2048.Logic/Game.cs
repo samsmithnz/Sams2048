@@ -61,18 +61,22 @@ namespace _2048.Logic
             //Slide up the pieces first
             for (int y = 0; y < yLength; y++)
             {
+                Console.WriteLine(this.ToString());
                 if (GameBoard[0, y] == 0)
                 {
                     MoveRowUpFromPosition(1, y);
                 }
+                Console.WriteLine(this.ToString());
                 if (GameBoard[1, y] == 0)
                 {
                     MoveRowUpFromPosition(2, y);
                 }
+                Console.WriteLine(this.ToString());
                 if (GameBoard[2, y] == 0)
                 {
                     MoveRowUpFromPosition(3, y);
                 }
+                Console.WriteLine(this.ToString());
             }
 
             //Then merge the pieces
