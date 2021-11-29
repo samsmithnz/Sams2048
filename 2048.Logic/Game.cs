@@ -56,38 +56,8 @@ namespace _2048.Logic
 
         public void MovePiecesUp()
         {
-            int xLength = GameBoard.GetLength(0);
             int yLength = GameBoard.GetLength(1);
 
-            //for (int x = 0; x < xLength; x++)
-            //{
-            //    if (GameBoard[x, 0] > 0 && GameBoard[x, 0] == GameBoard[x, 1])
-            //    {
-            //        GameBoard[x, 0] = GameBoard[x, 0] * 2;
-            //        GameBoard[x, 1] = GameBoard[x, 2];
-            //        GameBoard[x, 2] = GameBoard[x, 3];
-            //        GameBoard[x, 3] = GameBoard[x, 4];
-            //        GameBoard[x, 4] = 0;
-            //    }
-            //    if (GameBoard[x, 1] > 0 && GameBoard[x, 1] == GameBoard[x, 2])
-            //    {
-            //        GameBoard[x, 1] = GameBoard[x, 1] * 2;
-            //        GameBoard[x, 2] = GameBoard[x, 3];
-            //        GameBoard[x, 3] = GameBoard[x, 4];
-            //        GameBoard[x, 4] = 0;
-            //    }
-            //    if (GameBoard[x, 2] > 0 && GameBoard[x, 2] == GameBoard[x, 3])
-            //    {
-            //        GameBoard[x, 2] = GameBoard[x, 2] * 2;
-            //        GameBoard[x, 3] = GameBoard[x, 4];
-            //        GameBoard[x, 4] = 0;
-            //    }
-            //    if (GameBoard[x, 3] > 0 && GameBoard[x, 3] == GameBoard[x, 4])
-            //    {
-            //        GameBoard[x, 3] = GameBoard[x, 3] * 2;
-            //        GameBoard[x, 4] = 0;
-            //    }
-            //}
             for (int y = 0; y < yLength; y++)
             {
                 if (GameBoard[0, y] > 0 && GameBoard[0, y] == GameBoard[1, y])
@@ -108,20 +78,10 @@ namespace _2048.Logic
             }
         }
 
-        private void MoveRowUpFromPosition(int xStart, int yStart)
-        {
-            for (int x = xStart; x < 3; x++)
-            {
-                GameBoard[x, yStart] = GameBoard[x + 1, yStart];
-            }
-            GameBoard[3, yStart] = 0;
-        }
-
         public void MovePiecesDown()
         {
-            int xLength = GameBoard.GetLength(0);
             int yLength = GameBoard.GetLength(1);
-            
+
             for (int y = 0; y < yLength; y++)
             {
                 if (GameBoard[2, y] > 0 && GameBoard[3, y] == GameBoard[2, y])
@@ -142,6 +102,63 @@ namespace _2048.Logic
             }
         }
 
+        public void MovePiecesLeft()
+        {
+            int xLength = GameBoard.GetLength(0);
+
+            for (int x = 0; x < xLength; x++)
+            {
+                if (GameBoard[x, 0] > 0 && GameBoard[x, 0] == GameBoard[x, 1])
+                {
+                    GameBoard[x, 0] = GameBoard[x, 0] * 2;
+                    MoveColumnLeftFromPosition(x, 1);
+                }
+                if (GameBoard[x, 1] > 0 && GameBoard[x, 1] == GameBoard[x, 2])
+                {
+                    GameBoard[x, 1] = GameBoard[x, 1] * 2;
+                    MoveColumnLeftFromPosition(x, 1);
+                }
+                if (GameBoard[x, 2] > 0 && GameBoard[x, 2] == GameBoard[x, 3])
+                {
+                    GameBoard[x, 2] = GameBoard[x, 2] * 2;
+                    MoveColumnLeftFromPosition(x, 2);
+                }
+            }
+        }
+
+        public void MovePiecesRight()
+        {
+            int xLength = GameBoard.GetLength(0);
+
+            for (int x = 0; x < xLength; x++)
+            {
+                if (GameBoard[x, 2] > 0 && GameBoard[x, 3] == GameBoard[x, 2])
+                {
+                    GameBoard[x, 2] = GameBoard[x, 2] * 2;
+                    MoveColumnRightFromPosition(x, 3);
+                }
+                if (GameBoard[x, 1] > 0 && GameBoard[x, 2] == GameBoard[x, 1])
+                {
+                    GameBoard[x, 1] = GameBoard[x, 1] * 2;
+                    MoveColumnRightFromPosition(x, 2);
+                }
+                if (GameBoard[x, 0] > 0 && GameBoard[x, 1] == GameBoard[x, 0])
+                {
+                    GameBoard[x, 0] = GameBoard[x, 0] * 2;
+                    MoveColumnRightFromPosition(x, 1);
+                }
+            }
+        }
+
+        private void MoveRowUpFromPosition(int xStart, int yStart)
+        {
+            for (int x = xStart; x < 3; x++)
+            {
+                GameBoard[x, yStart] = GameBoard[x + 1, yStart];
+            }
+            GameBoard[3, yStart] = 0;
+        }
+
         private void MoveRowDownFromPosition(int xStart, int yStart)
         {
             for (int x = xStart; x > 0; x--)
@@ -151,43 +168,7 @@ namespace _2048.Logic
             GameBoard[0, yStart] = 0;
         }
 
-        public void MovePiecesLeft()
-        {
-            int xLength = GameBoard.GetLength(0);
-            int yLength = GameBoard.GetLength(1);
-
-            for (int x = 0; x < xLength; x++)
-            {
-                if (GameBoard[x, 0] > 0 && GameBoard[x, 0] == GameBoard[x, 1])
-                {
-                    GameBoard[x, 0] = GameBoard[x, 0] * 2;
-                    GameBoard[x, 1] = GameBoard[x, 2];
-                    GameBoard[x, 2] = GameBoard[x, 3];
-                    GameBoard[x, 3] = GameBoard[x, 4];
-                    GameBoard[x, 4] = 0;
-                }
-                if (GameBoard[x, 1] > 0 && GameBoard[x, 1] == GameBoard[x, 2])
-                {
-                    GameBoard[x, 1] = GameBoard[x, 1] * 2;
-                    GameBoard[x, 2] = GameBoard[x, 3];
-                    GameBoard[x, 3] = GameBoard[x, 4];
-                    GameBoard[x, 4] = 0;
-                }
-                if (GameBoard[x, 2] > 0 && GameBoard[x, 2] == GameBoard[x, 3])
-                {
-                    GameBoard[x, 2] = GameBoard[x, 2] * 2;
-                    GameBoard[x, 3] = GameBoard[x, 4];
-                    GameBoard[x, 4] = 0;
-                }
-                if (GameBoard[x, 3] > 0 && GameBoard[x, 3] == GameBoard[x, 4])
-                {
-                    GameBoard[x, 3] = GameBoard[x, 3] * 2;
-                    GameBoard[x, 4] = 0;
-                }
-            }
-        }
-
-        private void MoveRowLeftFromPosition(int xStart, int yStart)
+        private void MoveColumnLeftFromPosition(int xStart, int yStart)
         {
             for (int x = xStart; x < 3; x++)
             {
@@ -196,12 +177,7 @@ namespace _2048.Logic
             GameBoard[3, yStart] = 0;
         }
 
-        public void MovePiecesRight()
-        {
-
-        }
-
-        private void MoveRowRightFromPosition(int xStart, int yStart)
+        private void MoveColumnRightFromPosition(int xStart, int yStart)
         {
             for (int x = xStart; x > 0; x--)
             {
