@@ -190,6 +190,42 @@ namespace _2048.Tests
         }
 
         [TestMethod]
+        public void SlideDownToMergeTest()
+        {
+            //Arrange
+            string initialBoard = @"
+---------
+|1|2|4|8|
+---------
+|0|1|2|4|
+---------
+|0|0|1|0|
+---------
+|0|0|0|1|
+---------
+";
+            Game game = new(initialBoard);
+
+            //Act
+            game.MovePiecesDown();
+            string gameBoardCurrent = game.ToString();
+
+            //Assert
+            string gameBoardExpected = @"
+---------
+|0|0|0|0|
+---------
+|0|0|4|8|
+---------
+|0|2|2|4|
+---------
+|1|1|1|1|
+---------
+";
+            Assert.AreEqual(gameBoardExpected, gameBoardCurrent);
+        }
+
+        [TestMethod]
         public void MoveRightToMergeTest()
         {
             //Arrange

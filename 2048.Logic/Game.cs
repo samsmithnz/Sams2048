@@ -65,7 +65,7 @@ namespace _2048.Logic
             {
                 int currentColumn = 0;
                 int moveCounter = 0;
-                Debug.WriteLine(this.ToString());
+                //Debug.WriteLine(this.ToString());
                 do
                 {
                     if (GameBoard[x, currentColumn] == 0 && x < 3 && moveCounter < 4)
@@ -76,13 +76,9 @@ namespace _2048.Logic
                     else
                     {
                         moveCounter = 0;
-                        if (currentColumn == 4)
-                        {
-                            int i = 4;
-                        }
                         currentColumn++;
                     }
-                    Debug.WriteLine(this.ToString());
+                    //Debug.WriteLine(this.ToString());
 
                 } while (currentColumn < yLength);
             }
