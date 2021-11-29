@@ -151,15 +151,64 @@ namespace _2048.Logic
             GameBoard[0, yStart] = 0;
         }
 
-        //public void MovePiecesLeft()
-        //{
+        public void MovePiecesLeft()
+        {
+            int xLength = GameBoard.GetLength(0);
+            int yLength = GameBoard.GetLength(1);
 
-        //}
+            for (int x = 0; x < xLength; x++)
+            {
+                if (GameBoard[x, 0] > 0 && GameBoard[x, 0] == GameBoard[x, 1])
+                {
+                    GameBoard[x, 0] = GameBoard[x, 0] * 2;
+                    GameBoard[x, 1] = GameBoard[x, 2];
+                    GameBoard[x, 2] = GameBoard[x, 3];
+                    GameBoard[x, 3] = GameBoard[x, 4];
+                    GameBoard[x, 4] = 0;
+                }
+                if (GameBoard[x, 1] > 0 && GameBoard[x, 1] == GameBoard[x, 2])
+                {
+                    GameBoard[x, 1] = GameBoard[x, 1] * 2;
+                    GameBoard[x, 2] = GameBoard[x, 3];
+                    GameBoard[x, 3] = GameBoard[x, 4];
+                    GameBoard[x, 4] = 0;
+                }
+                if (GameBoard[x, 2] > 0 && GameBoard[x, 2] == GameBoard[x, 3])
+                {
+                    GameBoard[x, 2] = GameBoard[x, 2] * 2;
+                    GameBoard[x, 3] = GameBoard[x, 4];
+                    GameBoard[x, 4] = 0;
+                }
+                if (GameBoard[x, 3] > 0 && GameBoard[x, 3] == GameBoard[x, 4])
+                {
+                    GameBoard[x, 3] = GameBoard[x, 3] * 2;
+                    GameBoard[x, 4] = 0;
+                }
+            }
+        }
 
-        //public void MovePiecesRight()
-        //{
+        private void MoveRowLeftFromPosition(int xStart, int yStart)
+        {
+            for (int x = xStart; x < 3; x++)
+            {
+                GameBoard[x, yStart] = GameBoard[x + 1, yStart];
+            }
+            GameBoard[3, yStart] = 0;
+        }
 
-        //}
+        public void MovePiecesRight()
+        {
+
+        }
+
+        private void MoveRowRightFromPosition(int xStart, int yStart)
+        {
+            for (int x = xStart; x > 0; x--)
+            {
+                GameBoard[x, yStart] = GameBoard[x - 1, yStart];
+            }
+            GameBoard[0, yStart] = 0;
+        }
 
         //public void AddNewPiece()
         //{
