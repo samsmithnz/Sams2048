@@ -117,6 +117,42 @@ namespace _2048.Tests
 
 
         [TestMethod]
+        public void MoveUpWithMultipleMergesTest()
+        {
+            //Arrange
+            string initialBoard = @"
+---------
+|1|2|4|8|
+---------
+|1|4|8|16|
+---------
+|4|4|16|32|
+---------
+|4|8|16|32|
+---------
+";
+            Game game = new(initialBoard);
+
+            //Act
+            game.MovePiecesUp();
+            string gameBoardCurrent = game.ToString();
+
+            //Assert
+            string gameBoardExpected = @"
+---------
+|2|2|4|8|
+---------
+|8|8|8|16|
+---------
+|0|8|32|64|
+---------
+|0|0|0|0|
+---------
+";
+            Assert.AreEqual(gameBoardExpected, gameBoardCurrent);
+        }
+
+        [TestMethod]
         public void MoveDownToMergeTest()
         {
             //Arrange
