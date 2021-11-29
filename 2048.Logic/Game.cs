@@ -106,8 +106,33 @@ namespace _2048.Logic
 
         public void MovePiecesDown()
         {
+            int xLength = GameBoard.GetLength(0);
             int yLength = GameBoard.GetLength(1);
 
+            //Slide up the pieces into empty spots first
+            for (int x = xLength-1; x > 0; x--)
+            {
+                int currentColumn = 0;
+                int moveCounter = 0;
+                //Debug.WriteLine(this.ToString());
+                do
+                {
+                    if (GameBoard[x, currentColumn] == 0 && x > 0 && moveCounter < 4)
+                    {
+                        MoveRowDownFromPosition(x, currentColumn);
+                        moveCounter++;
+                    }
+                    else
+                    {
+                        moveCounter = 0;
+                        currentColumn++;
+                    }
+                    //Debug.WriteLine(this.ToString());
+
+                } while (currentColumn < yLength);
+            }
+
+            //Then merge the pieces
             for (int y = 0; y < yLength; y++)
             {
                 if (GameBoard[2, y] > 0 && GameBoard[3, y] == GameBoard[2, y])
