@@ -313,9 +313,9 @@ namespace _2048.Logic
             return sb.ToString();
         }
 
-        private string AddDividingLine(int length)
+        private static string AddDividingLine(int length)
         {
-            StringBuilder sb = new StringBuilder();
+            StringBuilder sb = new();
             for (int y = 0; y < length; y++)
             {
                 sb.Append("--");
