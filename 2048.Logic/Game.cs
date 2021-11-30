@@ -1,4 +1,5 @@
-﻿using System.Text;
+﻿using System.Numerics;
+using System.Text;
 
 namespace _2048.Logic
 {
@@ -80,10 +81,29 @@ namespace _2048.Logic
             gameMovement.MovePiecesRight();
         }
 
-        //public void AddNewPiece()
-        //{
-
-        //}
+        public void AddNewPiece()
+        {
+            int xLength = GameBoard.GetLength(0);
+            int yLength = GameBoard.GetLength(1);
+            List<Vector2> openSpots = new();
+            //Find all open squares
+            for (int x = 0; x < xLength; x++)
+            {
+                for (int y = 0; y < yLength; y++)
+                {
+                    if (GameBoard[x, y] == 0)
+                    {
+                        openSpots.Add(new Vector2(x, y));
+                    }
+                }
+            }
+            //Get a random number based on the number of open spots
+            if (openSpots.Count > 0)
+            {
+                int randomIndex = RandomNumbers.GenerateRandomNumber(0, openSpots.Count - 1, 0);
+                GameBoard[(int)openSpots[randomIndex].X, (int)openSpots[randomIndex].Y] = 1;
+            }
+        }
 
         public override string ToString()
         {
