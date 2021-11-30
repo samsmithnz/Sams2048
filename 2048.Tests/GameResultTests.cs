@@ -4,7 +4,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace _2048.Tests
 {
     [TestClass]
-    public class GameTests
+    public class GameResultTests
     {
         [TestMethod]
         public void GameIsWonTest()
