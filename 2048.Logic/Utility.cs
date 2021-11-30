@@ -4,18 +4,10 @@ namespace _2048.Logic
 {
     public static class Utility
     {
-        public static int GenerateRandomNumber(int minValue, int maxValue, int? seed = null)
+        public static int GenerateRandomNumber(int minValue, int maxValue, int seed = 0)
         {
-            if (seed == null)
-            {
-                Random rand = new();
-                return rand.Next(minValue, maxValue);
-            }
-            else
-            {
-                Random rand = new((int)seed);
-                return rand.Next(minValue, maxValue);
-            }
+            Random rand = new((int)seed);
+            return rand.Next(minValue, maxValue);
         }
 
         public static string AddDividingLine(int length)
