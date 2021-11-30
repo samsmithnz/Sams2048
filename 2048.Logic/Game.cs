@@ -9,6 +9,7 @@ namespace _2048.Logic
             GameBoard = new int[x, y];
         }
 
+        //Read the board from a string
         public Game(string board, int x = 4, int y = 4)
         {
             GameBoard = new int[x, y];
