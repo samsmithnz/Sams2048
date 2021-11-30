@@ -6,12 +6,12 @@ namespace _2048.Tests
     [TestClass]
     public class GameBoardInitializeTests
     {
-      
+
         [TestMethod]
         public void Game1InitializationTest()
         {
             //Arrange
-           string initialBoard = @"
+            string initialBoard = @"
 ---------
 |1|2|4|8|
 ---------

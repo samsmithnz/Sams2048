@@ -150,7 +150,7 @@ namespace _2048.Tests
 ---------
 ";
             Assert.AreEqual(gameBoardExpected, gameBoardCurrent);
-        }       
+        }
 
     }
 }
