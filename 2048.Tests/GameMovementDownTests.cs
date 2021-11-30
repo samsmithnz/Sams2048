@@ -6,7 +6,7 @@ namespace _2048.Tests
     [TestClass]
     public class GameMovementDownTests
     {
-  
+
         [TestMethod]
         public void MoveDownToMergeTest()
         {

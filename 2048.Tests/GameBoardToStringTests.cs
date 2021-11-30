@@ -6,7 +6,7 @@ namespace _2048.Tests
     [TestClass]
     public class GameBoardToStringTests
     {
-      
+
         [TestMethod]
         public void Game1ToStringTest()
         {
