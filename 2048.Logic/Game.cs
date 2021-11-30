@@ -100,7 +100,7 @@ namespace _2048.Logic
             //Get a random number based on the number of open spots
             if (openSpots.Count > 0)
             {
-                int randomIndex = RandomNumbers.GenerateRandomNumber(0, openSpots.Count - 1, 0);
+                int randomIndex = Utility.RandomNumbers.GenerateRandomNumber(0, openSpots.Count - 1, 0);
                 GameBoard[(int)openSpots[randomIndex].X, (int)openSpots[randomIndex].Y] = 1;
             }
         }
@@ -111,7 +111,7 @@ namespace _2048.Logic
             int xLength = GameBoard.GetLength(0);
             int yLength = GameBoard.GetLength(1);
             sb.Append(Environment.NewLine);
-            sb.Append(AddDividingLine(yLength));
+            sb.Append(Utility.AddDividingLine(yLength));
             for (int x = 0; x < xLength; x++)
             {
                 sb.Append('|');
@@ -121,20 +121,8 @@ namespace _2048.Logic
                     sb.Append('|');
                 }
                 sb.Append(Environment.NewLine);
-                sb.Append(AddDividingLine(yLength));
+                sb.Append(Utility.AddDividingLine(yLength));
             }
-            return sb.ToString();
-        }
-
-        private static string AddDividingLine(int length)
-        {
-            StringBuilder sb = new();
-            for (int y = 0; y < length; y++)
-            {
-                sb.Append("--");
-            }
-            sb.Append('-');
-            sb.Append(Environment.NewLine);
             return sb.ToString();
         }
     }
