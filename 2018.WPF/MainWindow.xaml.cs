@@ -66,7 +66,29 @@ namespace _2018.WPF
                 {
                     Button button = (Button)this.FindName("btn_x" + x.ToString() + "y" + y.ToString());
                     button.Content = _game.GameBoard[x, y];
+                    button.Background = new SolidColorBrush(GetColor(_game.GameBoard[x, y]));
                 }
+            }
+        }
+
+        private Color GetColor(int value)
+        {
+            switch (value)
+            {
+                case 0: return Colors.White;
+                case 1: return Colors.SkyBlue;
+                case 2: return Colors.Blue;
+                case 4: return Colors.Cyan;
+                case 8: return Colors.DarkSeaGreen;
+                case 16: return Colors.Green;
+                case 32: return Colors.Gold;
+                case 64: return Colors.Goldenrod;
+                case 128: return Colors.Orange;
+                case 256: return Colors.OrangeRed;
+                case 512: return Colors.Red;
+                case 1024: return Colors.Maroon;
+                case 2048: return Colors.Purple;
+                default: return Colors.White;
             }
         }
     }

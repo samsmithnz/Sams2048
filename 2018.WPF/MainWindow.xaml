@@ -7,10 +7,10 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="500" Width="800">
     <Grid Margin="0,0,0,0">
-        <Button x:Name="btnUp" Content="Up" HorizontalAlignment="Left" Margin="616,192,0,0" VerticalAlignment="Top" Height="50" Width="50" Click="btnUp_Clicked"/>
-        <Button x:Name="btnDown" Content="Down" HorizontalAlignment="Left" Margin="616,242,0,0" VerticalAlignment="Top" Height="50" Width="50" Click="btnDown_Clicked"/>
-        <Button x:Name="btnLeft" Content="Left" HorizontalAlignment="Left" Margin="566,242,0,0" VerticalAlignment="Top" Height="50" Width="50"/>
-        <Button x:Name="btnRight" Content="Right" HorizontalAlignment="Left" Margin="666,242,0,0" VerticalAlignment="Top" Height="50" Width="50" Click="btnRight_Clicked"/>
+        <Button x:Name="btnUp" Content="Up" HorizontalAlignment="Left" Margin="602,42,0,0" VerticalAlignment="Top" Height="50" Width="50" Click="btnUp_Clicked"/>
+        <Button x:Name="btnDown" Content="Down" HorizontalAlignment="Left" Margin="602,92,0,0" VerticalAlignment="Top" Height="50" Width="50" Click="btnDown_Clicked"/>
+        <Button x:Name="btnLeft" Content="Left" HorizontalAlignment="Left" Margin="552,92,0,0" VerticalAlignment="Top" Height="50" Width="50"/>
+        <Button x:Name="btnRight" Content="Right" HorizontalAlignment="Left" Margin="652,92,0,0" VerticalAlignment="Top" Height="50" Width="50" Click="btnRight_Clicked"/>
         <Button x:Name="btn_x0y0" Content="btn_x0y0" HorizontalAlignment="Left" Margin="50,42,0,0" VerticalAlignment="Top" Height="100" Width="100" FontSize="24" FontWeight="Bold"/>
         <Button x:Name="btn_x1y0" Content="btn_x1y0" HorizontalAlignment="Left" Margin="50,142,0,0" VerticalAlignment="Top" Height="100" Width="100" FontSize="24" FontWeight="Bold"/>
         <Button x:Name="btn_x2y0" Content="btn_x2y0" HorizontalAlignment="Left" Margin="50,242,0,0" VerticalAlignment="Top" Height="100" Width="100" FontSize="24" FontWeight="Bold"/>
@@ -27,6 +27,12 @@
         <Button x:Name="btn_x1y3" Content="btn_x1y3" HorizontalAlignment="Center" Margin="0,142,0,0" VerticalAlignment="Top" Height="100" Width="100" FontSize="24" FontWeight="Bold"/>
         <Button x:Name="btn_x2y3" Content="btn_x2y3" HorizontalAlignment="Center" Margin="0,242,0,0" VerticalAlignment="Top" Height="100" Width="100" FontSize="24" FontWeight="Bold"/>
         <Button x:Name="btn_x3y3" Content="btn_x3y3" HorizontalAlignment="Center" Margin="0,342,0,0" VerticalAlignment="Top" Height="100" Width="100" FontSize="24" FontWeight="Bold"/>
+        <TextBlock x:Name="txtBefore" HorizontalAlignment="Left" Margin="477,278,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="164" Width="150"/>
+        <TextBlock x:Name="txtAfter" HorizontalAlignment="Left" Margin="632,279,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="164" Width="145"/>
+        <Rectangle HorizontalAlignment="Left" Height="164" Margin="477,278,0,0" Stroke="Black" VerticalAlignment="Top" Width="150"/>
+        <Rectangle HorizontalAlignment="Left" Height="163" Margin="632,279,0,0" Stroke="Black" VerticalAlignment="Top" Width="145"/>
+        <Label Content="Before:" HorizontalAlignment="Left" Margin="477,252,0,0" VerticalAlignment="Top"/>
+        <Label Content="After:" HorizontalAlignment="Left" Margin="632,253,0,0" VerticalAlignment="Top"/>
 
     </Grid>
 </Window>
