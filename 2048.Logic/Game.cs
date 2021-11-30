@@ -100,7 +100,7 @@ namespace _2048.Logic
             //Get a random number based on the number of open spots
             if (openSpots.Count > 0)
             {
-                int randomIndex = Utility.RandomNumbers.GenerateRandomNumber(0, openSpots.Count - 1, 0);
+                int randomIndex = Utility.GenerateRandomNumber(0, openSpots.Count - 1, 0);
                 GameBoard[(int)openSpots[randomIndex].X, (int)openSpots[randomIndex].Y] = 1;
             }
         }
