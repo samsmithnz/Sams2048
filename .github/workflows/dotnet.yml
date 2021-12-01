@@ -9,7 +9,7 @@ on:
 jobs:
   build:
 
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
     outputs: # https://stackoverflow.com/questions/59175332/using-output-from-a-previous-job-in-a-new-one-in-a-github-action
       Version: ${{ steps.gitversion.outputs.SemVer }}
       CommitsSinceVersionSource: ${{ steps.gitversion.outputs.CommitsSinceVersionSource }}  
@@ -34,13 +34,13 @@ jobs:
       uses: actions/setup-dotnet@v1
       with:
         dotnet-version: 6.0.x
-    - name: Build
-      run: dotnet build 2048.Logic/2048.Logic.csproj -c Release --nologo -p:Version='${{ steps.gitversion.outputs.SemVer }}'
+    - name: Build WPF app
+      run: dotnet build Sams2048.WPF/Sams2048.WPF.csproj -c Release --nologo -p:Version='${{ steps.gitversion.outputs.SemVer }}'
     - name: Test
-      run: dotnet test 2048.Tests/2048.Tests.csproj -p:CollectCoverage=true -p:CoverletOutput=TestResults/ -p:CoverletOutputFormat=lcov
+      run: dotnet test Sams2048.Tests/Sams2048.Tests.csproj -p:CollectCoverage=true -p:CoverletOutput=TestResults/ -p:CoverletOutputFormat=lcov
     - name: Publish coverage report to coveralls.io
       uses: coverallsapp/github-action@master
       if: 0 == 1 # commented out for now
       with:
         github-token: ${{ secrets.GITHUB_TOKEN }}
-        path-to-lcov: 2048.Tests/TestResults/coverage.info
+        path-to-lcov: Sams2048.Tests/TestResults/coverage.info
