@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
-    <RootNamespace>_2048.Tests</RootNamespace>
+    <RootNamespace>Sams2048.Tests</RootNamespace>
     <Nullable>enable</Nullable>
 
     <IsPackable>false</IsPackable>
@@ -20,7 +20,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\2048.Logic\2048.Logic.csproj" />
+    <ProjectReference Include="..\Sams2048.Logic\Sams2048.Logic.csproj" />
   </ItemGroup>
 
 </Project>
