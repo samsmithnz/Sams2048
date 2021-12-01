@@ -146,8 +146,8 @@ namespace _2018.WPF
                 case 8: return Colors.DarkSeaGreen;
                 case 16: return Colors.Green;
                 case 32: return Colors.Gold;
-                case 64: return Colors.Goldenrod;
-                case 128: return Colors.Orange;
+                case 64: return Colors.Orange;
+                case 128: return Colors.DarkOrange;
                 case 256: return Colors.Red;
                 case 512: return Colors.Maroon;
                 case 1024: return Colors.Purple;
