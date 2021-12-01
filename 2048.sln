@@ -13,6 +13,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		README.md = README.md
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "2018.WPF", "2018.WPF\2018.WPF.csproj", "{28F0C133-620D-49B2-AE4D-553005BBDCB1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{AED07921-45BC-4CE4-9374-0A35345455A8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AED07921-45BC-4CE4-9374-0A35345455A8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AED07921-45BC-4CE4-9374-0A35345455A8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{28F0C133-620D-49B2-AE4D-553005BBDCB1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{28F0C133-620D-49B2-AE4D-553005BBDCB1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{28F0C133-620D-49B2-AE4D-553005BBDCB1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{28F0C133-620D-49B2-AE4D-553005BBDCB1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
