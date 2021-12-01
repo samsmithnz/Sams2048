@@ -32,6 +32,46 @@ namespace _2018.WPF
 
         private void btnUp_Clicked(object sender, RoutedEventArgs e)
         {
+            MoveUp();
+        }
+
+        private void btnDown_Clicked(object sender, RoutedEventArgs e)
+        {
+            MoveDown();
+        }
+
+        private void btnRight_Clicked(object sender, RoutedEventArgs e)
+        {
+            MoveRight();
+        }
+
+        private void btnLeft_Clicked(object sender, RoutedEventArgs e)
+        {
+            MoveLeft();
+        }
+
+        private void Window_OnKeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Up) // The Arrow-Up key
+            {
+                MoveUp();
+            }
+            else if (e.Key == Key.Down) // The Arrow-Down key
+            {
+                MoveDown();
+            }
+            else if (e.Key == Key.Right) // The Arrow-Right key
+            {
+                MoveRight();
+            }
+            else if (e.Key == Key.Left) // The Arrow-Left key
+            {
+                MoveLeft();
+            }
+        }
+
+        private void MoveUp()
+        {
             txtBefore.Text = _game.ToString();
             _game.MovePiecesUp();
             _game.AddNewPiece();
@@ -39,7 +79,7 @@ namespace _2018.WPF
             txtAfter.Text = _game.ToString();
         }
 
-        private void btnDown_Clicked(object sender, RoutedEventArgs e)
+        private void MoveDown()
         {
             txtBefore.Text = _game.ToString();
             _game.MovePiecesDown();
@@ -48,7 +88,7 @@ namespace _2018.WPF
             txtAfter.Text = _game.ToString();
         }
 
-        private void btnRight_Clicked(object sender, RoutedEventArgs e)
+        private void MoveRight()
         {
             txtBefore.Text = _game.ToString();
             _game.MovePiecesRight();
@@ -57,7 +97,7 @@ namespace _2018.WPF
             txtAfter.Text = _game.ToString();
         }
 
-        private void btnLeft_Clicked(object sender, RoutedEventArgs e)
+        private void MoveLeft()
         {
             txtBefore.Text = _game.ToString();
             _game.MovePiecesLeft();
