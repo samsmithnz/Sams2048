@@ -164,11 +164,13 @@ namespace _2018.WPF
             {
                 for (int x = 0; x <= 3; x++)
                 {
-                        pieces.Add(Game.GameBoard[x, y]);
+                    pieces.Add(Game.GameBoard[x, y]);
                 }
             }
             //Order the list
             pieces.Sort();
+            //reverse the order to put the biggest items in the top left
+            pieces.Reverse();
             //Put the pieces back into the gameboard
             int i = 0;
             for (int y = 0; y <= 3; y++)
