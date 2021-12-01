@@ -16,6 +16,18 @@ namespace _2018.WPF
         public MainWindow()
         {
             InitializeComponent();
+            //            string initialBoard = @"
+            //---------
+            //|1024|2|4|8|
+            //---------
+            //|512|16|0|0|
+            //---------
+            //|256|32|0|0|
+            //---------
+            //|128|64|0|0|
+            //---------
+            //";
+            //            Game = new(initialBoard);
             Game = new();
             Game.AddNewPiece();
             UpdateBoard();
@@ -147,8 +159,8 @@ namespace _2018.WPF
                 case 16: return Colors.Green;
                 case 32: return Colors.Gold;
                 case 64: return Colors.Orange;
-                case 128: return Colors.DarkOrange;
-                case 256: return Colors.Red;
+                case 128: return Colors.Red;
+                case 256: return Colors.IndianRed;
                 case 512: return Colors.Maroon;
                 case 1024: return Colors.Purple;
                 case 2048: return Colors.Pink;
