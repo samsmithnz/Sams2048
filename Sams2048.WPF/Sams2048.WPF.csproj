@@ -3,7 +3,7 @@
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
     <TargetFramework>net6.0-windows</TargetFramework>
-    <RootNamespace>_2018.WPF</RootNamespace>
+    <RootNamespace>Sams2048.WPF</RootNamespace>
     <Nullable>enable</Nullable>
     <UseWPF>true</UseWPF>
     <ApplicationIcon>2048.ico</ApplicationIcon>
@@ -14,7 +14,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\2048.Logic\2048.Logic.csproj" />
+    <ProjectReference Include="..\Sams2048.Logic\Sams2048.Logic.csproj" />
   </ItemGroup>
 
 </Project>

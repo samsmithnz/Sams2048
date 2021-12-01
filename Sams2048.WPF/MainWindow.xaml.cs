@@ -1,4 +1,4 @@
-﻿using _2048.Logic;
+﻿using Sams2048.Logic;
 using System;
 using System.Collections.Generic;
 using System.Linq;

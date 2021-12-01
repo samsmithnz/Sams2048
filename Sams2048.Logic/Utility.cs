@@ -1,6 +1,6 @@
 ﻿using System.Text;
 
-namespace _2048.Logic
+namespace Sams2048.Logic
 {
     public static class Utility
     {

@@ -1,7 +1,7 @@
-using _2048.Logic;
+using Sams2048.Logic;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace _2048.Tests
+namespace Sams2048.Tests
 {
     [TestClass]
     public class GameMovementUpTests

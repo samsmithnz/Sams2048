@@ -1,7 +1,7 @@
 ﻿using System.Numerics;
 using System.Text;
 
-namespace _2048.Logic
+namespace Sams2048.Logic
 {
     public class Game
     {
