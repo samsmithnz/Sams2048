@@ -176,6 +176,7 @@ namespace _2018.WPF
                 for (int x = 0; x <= 3; x++)
                 {
                     Game.GameBoard[x, y] = pieces[i];
+                    i++;
                 }
             }
             //Update the game board
