@@ -9,7 +9,7 @@
     <Grid Margin="0,0,0,0">
         <Button x:Name="btnUp" Content="Up" HorizontalAlignment="Left" Margin="602,42,0,0" VerticalAlignment="Top" Height="50" Width="50" Click="btnUp_Clicked"/>
         <Button x:Name="btnDown" Content="Down" HorizontalAlignment="Left" Margin="602,92,0,0" VerticalAlignment="Top" Height="50" Width="50" Click="btnDown_Clicked"/>
-        <Button x:Name="btnLeft" Content="Left" HorizontalAlignment="Left" Margin="552,92,0,0" VerticalAlignment="Top" Height="50" Width="50"/>
+        <Button x:Name="btnLeft" Content="Left" HorizontalAlignment="Left" Margin="552,92,0,0" VerticalAlignment="Top" Height="50" Width="50" Click="btnLeft_Clicked"/>
         <Button x:Name="btnRight" Content="Right" HorizontalAlignment="Left" Margin="652,92,0,0" VerticalAlignment="Top" Height="50" Width="50" Click="btnRight_Clicked"/>
         <Button x:Name="btn_x0y0" Content="btn_x0y0" HorizontalAlignment="Left" Margin="50,42,0,0" VerticalAlignment="Top" Height="100" Width="100" FontSize="24" FontWeight="Bold"/>
         <Button x:Name="btn_x1y0" Content="btn_x1y0" HorizontalAlignment="Left" Margin="50,142,0,0" VerticalAlignment="Top" Height="100" Width="100" FontSize="24" FontWeight="Bold"/>

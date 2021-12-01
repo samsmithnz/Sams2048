@@ -32,30 +32,38 @@ namespace _2018.WPF
 
         private void btnUp_Clicked(object sender, RoutedEventArgs e)
         {
+            txtBefore.Text = _game.ToString();
             _game.MovePiecesUp();
             _game.AddNewPiece();
             UpdateBoard();
+            txtAfter.Text = _game.ToString();
         }
 
         private void btnDown_Clicked(object sender, RoutedEventArgs e)
         {
+            txtBefore.Text = _game.ToString();
             _game.MovePiecesDown();
             _game.AddNewPiece();
             UpdateBoard();
+            txtAfter.Text = _game.ToString();
         }
 
         private void btnRight_Clicked(object sender, RoutedEventArgs e)
         {
+            txtBefore.Text = _game.ToString();
             _game.MovePiecesRight();
             _game.AddNewPiece();
             UpdateBoard();
+            txtAfter.Text = _game.ToString();
         }
 
         private void btnLeft_Clicked(object sender, RoutedEventArgs e)
         {
+            txtBefore.Text = _game.ToString();
             _game.MovePiecesLeft();
             _game.AddNewPiece();
             UpdateBoard();
+            txtAfter.Text = _game.ToString();
         }
 
         private void UpdateBoard()
