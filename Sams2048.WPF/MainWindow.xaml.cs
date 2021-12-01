@@ -114,25 +114,25 @@ namespace _2018.WPF
             {
                 MessageBox.Show("Congratulations, you won!");
             }
-            else
-            {
-                //Check if the game is stuck
-                int zeroSquareCount = 0;
-                for (int y = 0; y <= 3; y++)
-                {
-                    for (int x = 0; x <= 3; x++)
-                    {
-                        if (Game.GameBoard[x, y] == 0)
-                        {
-                            zeroSquareCount++;
-                        }
-                    }
-                }
-                if (zeroSquareCount == 0)
-                {
-                    MessageBox.Show("You lost! Restart, or use a cheat...");
-                }
-            }
+            //else
+            //{
+            //    //Check if the game is stuck
+            //    int zeroSquareCount = 0;
+            //    for (int y = 0; y <= 3; y++)
+            //    {
+            //        for (int x = 0; x <= 3; x++)
+            //        {
+            //            if (Game.GameBoard[x, y] == 0)
+            //            {
+            //                zeroSquareCount++;
+            //            }
+            //        }
+            //    }
+            //    if (zeroSquareCount == 0)
+            //    {
+            //        MessageBox.Show("You lost! Restart, or use a cheat...");
+            //    }
+            //}
         }
 
         private Color GetColor(int value)
