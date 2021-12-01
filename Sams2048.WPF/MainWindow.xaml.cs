@@ -1,4 +1,5 @@
 ﻿using Sams2048.Logic;
+using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
@@ -153,6 +154,32 @@ namespace _2018.WPF
                 case 2048: return Colors.Purple;
                 default: return Colors.White;
             }
+        }
+
+        private void btnCheatReorderPieces(object sender, RoutedEventArgs e)
+        {
+            //Extract all of the pieces into a list
+            List<int> pieces = new();
+            for (int y = 0; y <= 3; y++)
+            {
+                for (int x = 0; x <= 3; x++)
+                {
+                        pieces.Add(Game.GameBoard[x, y]);
+                }
+            }
+            //Order the list
+            pieces.Sort();
+            //Put the pieces back into the gameboard
+            int i = 0;
+            for (int y = 0; y <= 3; y++)
+            {
+                for (int x = 0; x <= 3; x++)
+                {
+                    Game.GameBoard[x, y] = pieces[i];
+                }
+            }
+            //Update the game board
+            UpdateBoard();
         }
     }
 }
