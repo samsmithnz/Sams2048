@@ -50,7 +50,7 @@ namespace _2018.WPF
             MoveLeft();
         }
 
-        private void Window_OnKeyDown(object sender, KeyEventArgs e)
+        private void OnKeyDown(object sender, KeyEventArgs e)
         {
             if (e.Key == Key.Up) // The Arrow-Up key
             {

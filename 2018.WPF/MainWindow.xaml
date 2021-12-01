@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:_2018.WPF"
         mc:Ignorable="d"
         Title="MainWindow" Height="500" Width="800">
-    <Grid Margin="0,0,0,0">
+    <Grid Margin="0,0,0,0" KeyDown="OnKeyDown">
         <Button x:Name="btnUp" Content="Up" HorizontalAlignment="Left" Margin="602,42,0,0" VerticalAlignment="Top" Height="50" Width="50" Click="btnUp_Clicked"/>
         <Button x:Name="btnDown" Content="Down" HorizontalAlignment="Left" Margin="602,92,0,0" VerticalAlignment="Top" Height="50" Width="50" Click="btnDown_Clicked"/>
         <Button x:Name="btnLeft" Content="Left" HorizontalAlignment="Left" Margin="552,92,0,0" VerticalAlignment="Top" Height="50" Width="50" Click="btnLeft_Clicked"/>
