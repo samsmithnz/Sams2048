@@ -1,9 +1,11 @@
 ﻿using Sams2048.Logic;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media;
+using System.Windows.Threading;
 
 namespace _2018.WPF
 {
@@ -30,7 +32,7 @@ namespace _2018.WPF
             //            Game = new(initialBoard);
             Game = new();
             Game.AddNewPiece();
-            UpdateBoard();
+            UpdateBoard(0, 0);
         }
 
         private void btnUp_Clicked(object sender, RoutedEventArgs e)
@@ -78,7 +80,7 @@ namespace _2018.WPF
             txtBefore.Text = Game.ToString();
             Game.MovePiecesUp();
             Game.AddNewPiece();
-            UpdateBoard();
+            UpdateBoard(1, 0);
             txtAfter.Text = Game.ToString();
         }
 
@@ -87,7 +89,7 @@ namespace _2018.WPF
             txtBefore.Text = Game.ToString();
             Game.MovePiecesDown();
             Game.AddNewPiece();
-            UpdateBoard();
+            UpdateBoard(-1, 0);
             txtAfter.Text = Game.ToString();
         }
 
@@ -96,7 +98,7 @@ namespace _2018.WPF
             txtBefore.Text = Game.ToString();
             Game.MovePiecesRight();
             Game.AddNewPiece();
-            UpdateBoard();
+            UpdateBoard(0, -1);
             txtAfter.Text = Game.ToString();
         }
 
@@ -105,19 +107,23 @@ namespace _2018.WPF
             txtBefore.Text = Game.ToString();
             Game.MovePiecesLeft();
             Game.AddNewPiece();
-            UpdateBoard();
+            UpdateBoard(0, 1);
             txtAfter.Text = Game.ToString();
         }
 
-        private void UpdateBoard()
+        private void UpdateBoard(int xDirection, int yDirection)
         {
             for (int y = 0; y <= 3; y++)
             {
                 for (int x = 0; x <= 3; x++)
                 {
                     Button button = (Button)this.FindName("btn_x" + x.ToString() + "y" + y.ToString());
-                    button.Content = Game.GameBoard[x, y];
-                    button.Background = new SolidColorBrush(GetColor(Game.GameBoard[x, y]));
+                    if (Game.GameBoard[x, y].ToString() != button.Content.ToString())
+                    {
+                        AnimateSquare(button, xDirection, yDirection);
+                        button.Content = Game.GameBoard[x, y];
+                        button.Background = new SolidColorBrush(GetColor(Game.GameBoard[x, y]));
+                    }
                 }
             }
 
@@ -194,7 +200,85 @@ namespace _2018.WPF
                 }
             }
             //Update the game board
-            UpdateBoard();
+            UpdateBoard(0, 0);
+        }
+
+        private void btnMergeTest(object sender, RoutedEventArgs e)
+        {
+            Thickness initialMargin = btn1.Margin;
+            Thickness currentMargin = btn1.Margin;
+            for (int i = 630; i <= 690; i++)
+            {
+                currentMargin.Left += 1;
+                btn1.Margin = currentMargin;
+                DoEvents();
+                Task.Delay(50);
+            }
+            btn1.Margin = initialMargin;
+        }
+
+        private void AnimateSquare(Button piece, int x, int y)
+        {
+            Thickness initialMargin = piece.Margin;
+            Thickness currentMargin = piece.Margin;
+            //if (x > 0)
+            //{
+            //    //Moving down
+            //    for (int i = 0; i < initialMargin.Bottom + 100; i++)
+            //    {
+            //        currentMargin.Bottom += 1;
+            //        piece.Margin = currentMargin;
+            //        DoEvents();
+            //        Task.Delay(50);
+            //    }
+            //}
+            //else if (x < 0)
+            //{
+            //    //Moving up
+            //    for (int i = 0; i < initialMargin.Top + 100; i++)
+            //    {
+            //        currentMargin.Top += 1;
+            //        piece.Margin = currentMargin;
+            //        DoEvents();
+            //        Task.Delay(50);
+            //    }
+            //}
+            //else if (y > 0)
+            //{
+            //    //Moving left
+            //    for (int i = 0; i < initialMargin.Left + 100; i++)
+            //    {
+            //        currentMargin.Left += 1;
+            //        piece.Margin = currentMargin;
+            //        DoEvents();
+            //        Task.Delay(50);
+            //    }
+            //}
+            //else if (y < 0)
+            //{
+            //    //Moving right
+            //    for (int i = 0; i < initialMargin.Right + 100; i++)
+            //    {
+            //        currentMargin.Right += 1;
+            //        piece.Margin = currentMargin;
+            //        DoEvents();
+            //        Task.Delay(50);
+            //    }
+            //}
+            //piece.Margin = initialMargin;
+        }
+
+        private static void DoEvents()
+        {
+            DispatcherFrame? frame = new DispatcherFrame();
+            Dispatcher.CurrentDispatcher.BeginInvoke(DispatcherPriority.Background,
+                new DispatcherOperationCallback(
+                    delegate (object f)
+                    {
+                        ((DispatcherFrame)f).Continue = false;
+                        return null;
+                    }), frame);
+            Dispatcher.PushFrame(frame);
         }
     }
 }
