@@ -32,5 +32,6 @@ updates:
   directory: "/"
   schedule:
     interval: "daily"
+  open-pull-requests-limit: 10
   assignees:
   - "samsmithnz"
