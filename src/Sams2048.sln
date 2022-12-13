@@ -6,6 +6,7 @@ MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{DA03AE92-89C1-43B0-9CAF-1D4B76B3E7F7}"
 	ProjectSection(SolutionItems) = preProject
 		.github\workflows\dotnet.yml = .github\workflows\dotnet.yml
+		..\GitVersion.yml = ..\GitVersion.yml
 		README.md = README.md
 	EndProjectSection
 EndProject
