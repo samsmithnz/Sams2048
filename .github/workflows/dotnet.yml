@@ -37,10 +37,9 @@ jobs:
     - name: Build WPF app
       run: dotnet build Sams2048.WPF/Sams2048.WPF.csproj -c Release --nologo -p:Version='${{ steps.gitversion.outputs.SemVer }}'
     - name: Test
-      run: dotnet test Sams2048.Tests/Sams2048.Tests.csproj -p:CollectCoverage=true -p:CoverletOutput=TestResults/ -p:CoverletOutputFormat=lcov
+      run: dotnet test Sams2048.Tests/Sams2048.Tests.csproj -e:CollectCoverage=true -e:CoverletOutput=TestResults/ -e:CoverletOutputFormat=lcov
     - name: Publish coverage report to coveralls.io
       uses: coverallsapp/github-action@master
-      if: 0 == 1 # commented out for now
       with:
         github-token: ${{ secrets.GITHUB_TOKEN }}
         path-to-lcov: Sams2048.Tests/TestResults/coverage.info
