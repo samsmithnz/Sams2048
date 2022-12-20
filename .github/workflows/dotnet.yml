@@ -51,7 +51,7 @@ jobs:
     if: github.ref == 'refs/heads/main' 
     steps:
       - name: Run Sonarcloud test
-        uses: samsmithnz/SamsDotNetSonarCloudAction@1.1.1
+        uses: samsmithnz/SamsDotNetSonarCloudAction@1.2.0
         with:
           projects: 'src/Sams2048.Core/Sams2048.Core.csproj,src/Sams2048.Tests/Sams2048.Tests.csproj,src/Sams2048.WPF/Sams2048.WPF.csproj'
           dotnet-version: '7.0.x'
