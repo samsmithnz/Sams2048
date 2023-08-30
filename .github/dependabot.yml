@@ -1,7 +1,7 @@
 version: 2
 updates:
 - package-ecosystem: nuget
-  directory: "/Sams2048.Logic"
+  directory: "/src/Sams2048.Logic"
   schedule:
     interval: daily
     time: "06:00"
@@ -14,7 +14,7 @@ updates:
       patterns: ["*"]
       update-types: ["minor", "patch"]
 - package-ecosystem: nuget
-  directory: "/Sams2048.Tests"
+  directory: "/src/Sams2048.Tests"
   schedule:
     interval: daily
     time: "06:00"
@@ -27,7 +27,7 @@ updates:
       patterns: ["*"]
       update-types: ["minor", "patch"]
 - package-ecosystem: nuget
-  directory: "/Sams2048.WPF"
+  directory: "/src/Sams2048.WPF"
   schedule:
     interval: daily
     time: "06:00"
