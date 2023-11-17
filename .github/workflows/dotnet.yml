@@ -33,7 +33,7 @@ jobs:
     - name: Setup .NET
       uses: actions/setup-dotnet@v3
       with:
-        dotnet-version: 7.0.x
+        dotnet-version: 8.0.x
     - name: Build WPF app
       run: dotnet build src/Sams2048.WPF/Sams2048.WPF.csproj -c Release --nologo -p:Version='${{ steps.gitversion.outputs.SemVer }}'
     - name: Test
@@ -54,7 +54,7 @@ jobs:
         uses: samsmithnz/SamsDotNetSonarCloudAction@v2.0.1
         with:
           projects: 'src/Sams2048.Core/Sams2048.Core.csproj,src/Sams2048.Tests/Sams2048.Tests.csproj,src/Sams2048.WPF/Sams2048.WPF.csproj'
-          dotnet-version: '7.0.x'
+          dotnet-version: '8.0.x'
           sonarcloud-organization: samsmithnz-github
           sonarcloud-project: samsmithnz_Sams2048
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
