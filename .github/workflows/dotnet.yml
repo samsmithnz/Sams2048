@@ -11,7 +11,7 @@ jobs:
 
     runs-on: windows-latest
     outputs: # https://stackoverflow.com/questions/59175332/using-output-from-a-previous-job-in-a-new-one-in-a-github-action
-      Version: ${{ steps.gitversion.outputs.SemVer }}
+      Version: ${{ steps.gitversion.outputs.MajorMinorPatch }}
       CommitsSinceVersionSource: ${{ steps.gitversion.outputs.CommitsSinceVersionSource }}  
 
     steps:
@@ -22,20 +22,20 @@ jobs:
     - name: Install GitVersion
       uses: gittools/actions/gitversion/setup@v4.0.1
       with:
-        versionSpec: 5.x
+        versionSpec: 6.x
     - name: Determine Version
       uses: gittools/actions/gitversion/execute@v4.0.1
       id: gitversion # step id used as reference for output values
     - name: Display GitVersion outputs
       run: |
-        echo "Version: ${{ steps.gitversion.outputs.SemVer }}"
+        echo "Version: ${{ steps.gitversion.outputs.MajorMinorPatch }}"
         echo "CommitsSinceVersionSource: ${{ steps.gitversion.outputs.CommitsSinceVersionSource }}"
     - name: Setup .NET
       uses: actions/setup-dotnet@v4
       with:
         dotnet-version: 8.0.x
     - name: Build WPF app
-      run: dotnet build src/Sams2048.WPF/Sams2048.WPF.csproj -c Release --nologo -p:Version='${{ steps.gitversion.outputs.SemVer }}'
+      run: dotnet build src/Sams2048.WPF/Sams2048.WPF.csproj -c Release --nologo -p:Version='${{ steps.gitversion.outputs.MajorMinorPatch }}'
     - name: Test
       run: dotnet test src/Sams2048.Tests/Sams2048.Tests.csproj -e:CollectCoverage=true -e:CoverletOutput=TestResults/ -e:CoverletOutputFormat=lcov
     - name: Publish coverage report to coveralls.io
