@@ -50,4 +50,4 @@ updates:
   groups:
     actions:
       patterns: ["*"]
-      update-types: ["minor", "patch"]
+      update-types: ["major", "minor", "patch"]
