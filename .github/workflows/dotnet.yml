@@ -20,11 +20,11 @@ jobs:
         fetch-depth: 0 #fetch-depth is needed for GitVersion
     #Install and calculate the new version with GitVersion  
     - name: Install GitVersion
-      uses: gittools/actions/gitversion/setup@v4.1.0
+      uses: gittools/actions/gitversion/setup@v4.2.0
       with:
         versionSpec: 6.x
     - name: Determine Version
-      uses: gittools/actions/gitversion/execute@v4.1.0
+      uses: gittools/actions/gitversion/execute@v4.2.0
       id: gitversion # step id used as reference for output values
     - name: Display GitVersion outputs
       run: |
@@ -70,7 +70,7 @@ jobs:
     steps:
     - uses: actions/checkout@v5
     - name: Download the build artifacts
-      uses: actions/download-artifact@v5
+      uses: actions/download-artifact@v6
     - name: Display GitVersion outputs
       run: |
         echo "Version: ${{ needs.build.outputs.Version }}" 
